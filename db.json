@@ -1,7 +1,7 @@
 {
-"tasks": [
+  "tasks": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Finish LiteSpace wireframes",
       "description": "Sketch out the UI for the task list and task input screens.",
       "status": "not started",
@@ -11,7 +11,7 @@
       "duration": 60
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "30-minute walk",
       "description": "Go for a light walk to clear your mind and get steps in.",
       "status": "done",
@@ -21,7 +21,7 @@
       "duration": 30
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Call Mom",
       "description": "Catch up and see how she’s doing this week.",
       "status": "not started",
@@ -31,7 +31,7 @@
       "duration": 20
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Review JavaScript async patterns",
       "description": "Read MDN and practice promises and async/await.",
       "status": "not started",
@@ -41,7 +41,7 @@
       "duration": 45
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Weekly planning",
       "description": "Outline top priorities for the upcoming week in Notion.",
       "status": "done",
@@ -49,6 +49,12 @@
       "dueDate": "2025-05-05",
       "repetition": "Weekly",
       "duration": 25
+    },
+    {
+      "id": "5361"
+    },
+    {
+      "id": "87da"
     }
   ]
 }
