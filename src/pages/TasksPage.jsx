@@ -12,6 +12,8 @@ export default function TasksPage(){
     return (
         <div>
             <h1>Task Page</h1>
+
+            <h3>New task</h3>
             <TaskInput onAddTask={handleAddTask} />
 
             <h3>Task list page holder</h3>
