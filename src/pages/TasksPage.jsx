@@ -1,5 +1,6 @@
 import {useState} from "react";
 import TaskInput from "../components/TaskInput";
+import NavBar from "../components/NavBar";
 
 export default function TasksPage(){
     const [tasks, setTasks] = useState([]);
@@ -11,6 +12,7 @@ export default function TasksPage(){
     
     return (
         <div>
+            <NavBar />
             <h1>Task Page</h1>
 
             <h3>New task</h3>
