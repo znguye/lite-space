@@ -1,12 +1,23 @@
 import NavBar from "../components/NavBar"
+import { useEffect, useState } from "react"
 
 export default function TaskListPage(){
+
+    const [tasks, setTasks] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3001/tasks")
+            .then((res) => res.json())
+            .then((data) => setTasks(data))
+            .catch((err) => console.error("Error loading tasks", err));
+    }, []);
+
     return(
         <>
             <NavBar />
             <h1>Task List</h1>
             <section className="TaskListBanner">
-                <h3>TaskListBanner</h3>
+                <h3>Let's stay on track!</h3>
             </section>
             <section className="TaskListFilter">
                 <button>All</button>
@@ -16,20 +27,28 @@ export default function TaskListPage(){
                 <button>Select date</button>
             </section>
             <section className="ListofTasks">
-                <ul>
-                    <li>
-                        <h4>Task 1</h4>
-                        <button>✓</button>
-                    </li>
-                    <li>
-                        <h4>Task 2</h4>
-                        <button>✓</button>
-                    </li>
-                    <li>
-                        <h4>Task 3</h4>
-                        <button>✓</button>
-                    </li>
-                </ul>
+                {tasks.length === 0 ? 
+                    (<p> You don't have any tasks!</p>
+                    ) : (
+                    <ul>
+                        {tasks.map((task) => (
+                        <li key={task.id}>
+                        <div>
+                            <h4>{task.name}</h4>
+                            {task.description && (
+                                <p>{task.description}</p>
+                            )}
+                            <p>Status: {task.status}</p>
+                            <p>Due: {task.dueDate}</p>
+                            <p>Category: {task.category}</p>
+                            <p>Duration: {task.duration}</p>
+                        </div>
+                        <button>✓</button> 
+                        </li>
+                        ))}
+                    </ul>
+                    )
+                }
             </section>
         </>
     )
