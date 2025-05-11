@@ -14,8 +14,8 @@ export default function TaskList({tasks, onComplete, onDelete}){
                         <p><strong>Duration:</strong> {task.duration} min</p>
                     </div>
                     <div className = "tile-actions">
-                        <button onClick = {() => handleComplete(task)}>✓</button> 
-                        <button onClick = {() => handleDelete(task.id)}>🗑</button> 
+                        <button onClick = {() => onComplete(task)}>✓</button> 
+                        <button onClick = {() => onDelete(task.id)}>🗑</button> 
                     </div>                  
                 </div>
                 ))}

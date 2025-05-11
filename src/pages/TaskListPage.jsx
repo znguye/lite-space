@@ -45,7 +45,7 @@ export default function TaskListPage(){
         if (dateFilter === "Tomorrow") {
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate()+1);
-            return tasksDate.toDateString() === tomorrow.toDateString();
+            return taskDate.toDateString() === tomorrow.toDateString(); 
         }
         if(dateFilter === "This Week"){
             const endOfWeek = new Date(today);
@@ -93,7 +93,7 @@ export default function TaskListPage(){
                 (<p> You don't have any tasks!</p>
                 ) : (
                     <TaskList 
-                        tasks={tasks}
+                        tasks={filteredTasks}
                         onComplete={handleComplete}
                         onDelete={handleDelete}
                     />
