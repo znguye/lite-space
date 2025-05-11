@@ -1,0 +1,99 @@
+/* Banner */
+.TaskListBanner {
+    background: url('../../assets/Banner_test.webp');
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+  }
+
+  .TaskListBanner h2 {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+  }
+  
+  /* Filter bars */
+  .TaskListFilter {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .filter-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .filter-row button {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #e0ecf8;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease;
+  }
+  
+  .filter-row button:hover {
+    background-color: #bfdff9;
+  }
+  
+  /* Task grid */
+  .task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .task-tile {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
+  }
+  
+  .task-tile:hover {
+    transform: scale(1.02);
+  }
+  
+  .task-tile h4 {
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+  
+  .task-tile p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .tile-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  
+  .tile-actions button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #0077cc;
+  }
+  
+  .tile-actions button:hover {
+    color: #005fa3;
+  }
+  

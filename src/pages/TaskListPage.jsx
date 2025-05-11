@@ -1,11 +1,17 @@
 import NavBar from "../components/NavBar"
 import { useEffect, useState } from "react"
 import { getTasks, deleteTask, updateTask } from "../services/api";
+import TaskList from "../components/TaskList";
+// import bannerImg from "../assets/Banner_test.webp"
 
 export default function TaskListPage(){
 
-    const [tasks, setTasks] = useState([])
+    const [tasks, setTasks] = useState([]);
+    const [dateFilter, setDateFilter] = useState("All");
+    const [categoryFilter, setCategoryFilter] = useState("All");
+    const [statusFilter, setStatusFilter] = useState("All");
 
+    //Fetch data, add Done and Delete handles:
     useEffect(() => {
         async function fetchData() {
             try {
@@ -29,47 +35,69 @@ export default function TaskListPage(){
         setTasks((prev) => prev.filter((t) => t.id !== id));
     };
 
+    //Utility: Filter by date:
+    function isWithinDateFilter(task) {
+        const today = new Date();
+        const taskDate = new Date(task.dueDate);
+
+        if (dateFilter === "Today")
+            return taskDate.toDateString() === today.toDateString();
+        if (dateFilter === "Tomorrow") {
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate()+1);
+            return tasksDate.toDateString() === tomorrow.toDateString();
+        }
+        if(dateFilter === "This Week"){
+            const endOfWeek = new Date(today);
+            endOfWeek.setDate(today.getDate()+7);
+            return taskDate >= today && taskDate <= endOfWeek;
+        }
+        return true; //All
+    }
+
+    //Combine filtering
+    const filteredTasks = tasks
+        .filter((task) => (categoryFilter ==="All" ? true: task.category === categoryFilter))
+        .filter((task) => (statusFilter ==="All" ? true: task.status === statusFilter))
+        .filter(isWithinDateFilter)
+        .slice(0,6);
+
     return(
         <>
             <NavBar />
-            <h1>Task List</h1>
 
             <section className="TaskListBanner">
-                <h3>Let's stay on track!</h3>
+                <h2>Let's stay on track!</h2>
             </section>
 
             <section className="TaskListFilter">
-                <button>All</button>
-                <button>Today</button>
-                <button>Tomorrow</button>
-                <button>This week</button>
-                <button>Select date</button>
+                <div className="filter-row">
+                    {["All", "Today", "Tomorrow", "This week"].map((label) => (
+                        <button key={label} onClick={() => setDateFilter(label)}>{label}</button>
+                    ))}
+                </div>
+                <div className="filter-row">
+                    {["All", "Work", "Self", "Study", "Relationships"].map((label) => (
+                        <button key={label} onClick={() => setCategoryFilter(label)}>{label}</button>
+                    ))}
+                </div>
+                <div className="filter-row">
+                    {["All", "in progress", "done"].map((label) => (
+                        <button key={label} onClick={() => setStatusFilter(label)}>{label}</button>
+                    ))}
+                </div>
             </section>
 
             <section className="ListofTasks">
                 {tasks.length === 0 ? 
-                    (<p> You don't have any tasks!</p>
-                    ) : (
-                    <ul className="task-list">
-                        {tasks.map((task) => (
-                        <li className="task-card" key={task.id}>
-                            <div>
-                                <h4>{task.name}</h4>
-                                {task.description && <p>{task.description}</p>}
-                                <p>Status: {task.status}</p>
-                                <p>Due: {task.dueDate}</p>
-                                <p>Category: {task.category}</p>
-                                <p>Duration: {task.duration} min</p>
-                            </div>
-                            <div className = "task-actions">
-                                <button onClick = {() => handleComplete(task)}>✓</button> 
-                                <button onClick = {() => handleDelete(task.id)}>🗑</button> 
-                            </div>                  
-                        </li>
-                        ))}
-                    </ul>
-                    )
-                }
+                (<p> You don't have any tasks!</p>
+                ) : (
+                    <TaskList 
+                        tasks={tasks}
+                        onComplete={handleComplete}
+                        onDelete={handleDelete}
+                    />
+                )}
             </section>
         </>
     )
