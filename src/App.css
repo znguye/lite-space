@@ -67,3 +67,120 @@
   border: none;
   cursor: pointer;
 }
+
+/* ----------------------- */
+/* HOMEPAGE */
+
+/* Global base styling */
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Section: Banner */
+.HomePageBanner {
+  background: url('./assets/Banner_test.webp') center/cover no-repeat;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+.banner-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 80%;
+}
+
+.quote {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.author {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  opacity: 0.85;
+}
+
+/* Section: Filter */
+.HomePageFilter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+.HomePageFilter button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #deeefc;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.HomePageFilter button:hover {
+  background-color: #bfdff9;
+}
+
+/* Section: Categories */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem 1rem;
+  gap: 1.5rem;
+}
+
+.category-card {
+  width: 220px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #a8dadc, #74c0fc);
+  transition: width 0.4s ease;
+}
+
+.category-card h4 {
+  margin: 0;
+  font-weight: 600;
+  color: #444;
+}
