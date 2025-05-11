@@ -4,9 +4,12 @@ import { useState } from "react";
 
 export default function TaskInput({onAddTask}) {
     const [task, setTask] = useState("");
+    const [description, setDescription] = useState("");
     const [category, setCategory] = useState("self");
-    const [state, setState] = useState("new")
+    const [status, setStatus] = useState("not started");
     const [dueDate, setDueDate] = useState("");
+    const [repetition, setRepetition] = useState("none");
+    const [duration, setDuration] = useState(30);
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,17 +20,25 @@ export default function TaskInput({onAddTask}) {
         const newTask = {
             id: Date.now(),
             task,
+            description,
             category,
-            state,
+            status,
             createdDate: new Date().toISOString(),
             dueDate,
+            repetition,
+            duration: parseInt(duration)
         };
 
         onAddTask(newTask);
+
+        //Reset form:
         setTask("");
+        setDescription("");
         setCategory("self");
-        setState("new");
+        setStatus("new");
         setDueDate("");
+        setRepetition("none");
+        setDuration(30);
     
     }
     
@@ -51,10 +62,10 @@ export default function TaskInput({onAddTask}) {
                 </select>
 
                 <select
-                    value={state}
-                    onChange={(e) => setState(e.target.value)}
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
                 >
-                    <option value="new">Not started</option>
+                    <option value="not started">Not started</option>
                     <option value="wip">In progress</option>
                     <option value="done">Done</option>
                 </select>
@@ -63,6 +74,24 @@ export default function TaskInput({onAddTask}) {
                     type="date"
                     value={dueDate}
                     onChange={(e) => setDueDate(e.target.value)}
+                />
+
+                <select
+                    value={repetition}
+                    onChange={(e) => setRepetition(e.target.value)}
+                >
+                    <option value="none">No repeat</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+
+                <input 
+                    type="number"
+                    min="5"
+                    step="5"
+                    placeholder="Duration (min)"
+                    value={duration}
+                    onChange={(e) => setDuration(e.target.value)}
                 />
 
                 <button type="submit">Add</button>

@@ -1,29 +1,33 @@
-import {useState} from "react";
+// Thougts: first create a simple function CRUD here, then create the CRUD functions in api.js and refactor this page,
+
+import {useEffect, useState} from "react";
 import TaskInput from "../components/TaskInput";
 import NavBar from "../components/NavBar";
+import { createTask, getTasks } from "../services/api";
 
 export default function AddTaskPage(){
     const [tasks, setTasks] = useState([]);
 
-    // const handleAddTask = (task) => {
-    //     setTasks([...tasks, task]);
-    //     console.log("task added:", task);
-    // }
+    useEffect(() => {
+        async function fetchTasks() {
+            try {
+                const data = await getTasks();
+                setTasks(data);
+            } catch (err) {
+                console.error("Failed to fetch tasks", err);
+            }
+        } fetchTasks();
+    }, []);
+
     const handleAddTask = async (task) => {
         try {
-            const response = await fetch("http://localhost:3001/tasks", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(task),
-            });
-
-            const newTask = await response.json();
-            setTasks([...tasks, task]);
+            const newTask = await createTask(task);
+            setTasks([...tasks, newTask]);
             console.log("task added:", newTask);
         } catch (err) {
-            console.error("Fail to add task", err);
+            console.error("Failed to add task", err);
         }
-    }
+    };
     
     return (
         <div>
@@ -33,12 +37,24 @@ export default function AddTaskPage(){
             <h3>New task</h3>
             <TaskInput onAddTask={handleAddTask} />
 
-            <h3>Task list page holder</h3>
+            <h3>Task list</h3>
             <ul>
                 {tasks.map((task) =>{
-                    <li key={task.id}>
-                        [{task.category}] {task.task} (due {task.dueDate})
+                    return(
+                        <li key={task.id}>
+                        [{task.category}] <strong>{task.name}</strong>
+                        <br />
+                        {task.description}
+                        <br />
+                        Status: {task.status}
+                        <br />
+                        Due: {task.dueDate}
+                        <br />
+                        Repeat: {task.repetition}
+                        <br />
+                        Duration: {task.duration} min
                     </li>
+                    );
                 })}
             </ul>           
         </div>

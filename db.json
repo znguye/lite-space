@@ -55,6 +55,17 @@
     },
     {
       "id": "87da"
+    },
+    {
+      "id": 1746971136564,
+      "task": "Test task",
+      "description": "",
+      "category": "self",
+      "status": "not started",
+      "createdDate": "2025-05-11T13:45:36.564Z",
+      "dueDate": "2025-05-21",
+      "repetition": "daily",
+      "duration": 30
     }
   ]
 }
