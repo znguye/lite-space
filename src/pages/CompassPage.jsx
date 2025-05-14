@@ -1,27 +1,41 @@
-import NavBar from "../components/NavBar" 
+import NavBar from "../components/NavBar";
+import React from "react";
+//Banner - to be refactored
+import { useEffect, useState } from "react";
+import { getRandomQuote } from "../services/quote_api";
+
+import CommpassCard from "../components/CompassCard"; 
+import '../pages/pages_styles/CompassPage.css'
+
 
 export default function CompassPage(){
+
+    //Quote part:
+        const [quote, setQuote] = useState(null);
+        useEffect(() => {
+            setQuote(getRandomQuote());
+        },[]);
+
     return(
         <div>
             <NavBar />
-            <h1>Compass Page</h1>
-            <section className="Compass">
-                <div className="Balance">
-                    <h2>What is your balance?</h2>
-                    <ul className="balanceOptions">
-                        <li>Work - [Slider]</li>
-                        <li>Self - [Slider]</li>
-                        <li>Study - [Slider]</li>
-                        <li>Relationships - [Slider]</li>
-                    </ul>                
-                </div>
-                <div className="dailyUndeniable">
-                    <h2>What is your daily undeniable?</h2>
-                    <button>Eat</button>
-                    <button>Sleep</button>
-                    <button>Shower</button>
-                    <button>Commute</button>
-                </div>
+
+            <section className="HomePageBanner">
+            <div className="banner-overlay">
+                {quote && (
+                    <>
+                        <h2 className="quote">"{quote.text}"</h2>
+                        <p className="author">- {quote.author} -</p>
+                    </>
+                )}
+            </div>
+            </section>
+
+            <section className="card-container">
+                <div className="card">Card 1</div>
+                <div className="card"><CommpassCard /></div>
+                <div className="card">Card 3</div>
+
             </section>
         </div>
     )
