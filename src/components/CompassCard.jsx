@@ -1,16 +1,25 @@
 import React from "react"
 import './comonents_styles/CompassCard.css'
 
-export default function CommpassCard({totalTasks = 20, completedTasks = 7}) {
+export default function CommpassCard({totalTasks = 13, completedTasks = 9}) {
 
     const getPosition = () => {
-        const ratio = (completedTasks / (totalTasks) || 0);
-        const x = ratio * 100;
-        const y = (1 - ratio) * 100;
         
-        return { left: `${x}%`, top: `${y}%`};
+        const isHighTask = totalTasks > 7;
+        const isHighCompletion = (completedTasks / (totalTasks || 1)) > 0.5;
+
+        const zone = {
+            left: isHighCompletion ? '75%' : '25%',
+            top: isHighTask ? '75%' : '25%',
+          };
+
+        
+        // return { left: `${x}%`, top: `${y}%`};
+        return zone;
 
     };
+
+    
 
 
     return(
