@@ -6,6 +6,7 @@ import { getRandomQuote } from "../services/quote_api";
 
 import CommpassCard from "../components/CompassCard"; 
 import '../pages/pages_styles/CompassPage.css'
+import Archetype from "../components/Archetype";
 
 
 export default function CompassPage(){
@@ -32,7 +33,7 @@ export default function CompassPage(){
             </section>
 
             <section className="card-container">
-                <div className="card">Card 1</div>
+                <div className="card"><Archetype /></div>
                 <div className="card"><CommpassCard /></div>
                 <div className="card">Card 3</div>
 

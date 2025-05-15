@@ -37,7 +37,7 @@ export default function AddTaskPage(){
             <h3>New task</h3>
             <TaskInput onAddTask={handleAddTask} />
 
-            <h3>Task list</h3>
+            {/* <h3>Task list</h3>
             <ul>
                 {tasks.map((task) =>{
                     return(
@@ -56,7 +56,7 @@ export default function AddTaskPage(){
                     </li>
                     );
                 })}
-            </ul>           
+            </ul>            */}
         </div>
     )
 }

@@ -1,28 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "name": "Organize study notes",
-      "description": "Research and make a short itinerary.",
-      "status": "in progress",
-      "category": "Study",
-      "dueDate": "2025-05-10",
-      "repetition": "Weekly",
-      "duration": 95,
-      "Status": "Done"
-    },
-    {
-      "id": "2",
-      "name": "Organize study notes",
-      "description": "Read MDN and practice promises and async/await.",
-      "status": "done",
-      "category": "Self",
-      "dueDate": "2025-05-07",
-      "repetition": "None",
-      "duration": 52,
-      "Status": "Done"
-    },
-    {
       "id": "3",
       "name": "Complete UI redesign",
       "description": "Pick a book from the shelf.",
@@ -48,7 +26,7 @@
       "id": "5",
       "name": "Clean workspace",
       "description": "Use Headspace or Calm to relax.",
-      "status": "in progress",
+      "status": "done",
       "category": "Study",
       "dueDate": "2025-05-17",
       "repetition": "None",
@@ -439,6 +417,17 @@
       "repetition": "Every day",
       "duration": 83,
       "Status": "Done"
+    },
+    {
+      "id": 1747334940897,
+      "task": "Test",
+      "description": "",
+      "category": "self",
+      "status": "not started",
+      "createdDate": "2025-05-15T18:49:00.897Z",
+      "dueDate": "2025-05-15",
+      "repetition": "none",
+      "duration": 30
     }
   ]
 }
