@@ -1,0 +1,46 @@
+.free-time-card {
+    padding: 1.5rem;
+    background-color: #f8f9fc;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 320px;  
+    margin: auto;
+  }
+  
+  .time-block {
+    margin-bottom: 1.25rem;
+  }
+  
+  .time-block label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: #555;
+  }
+  
+  .bar-container {
+    background-color: #eee;
+    border-radius: 6px;
+    height: 12px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .bar {
+    height: 12px;
+    border-radius: 6px;
+    transition: width 0.3s ease;
+  }
+  
+  .bar.base {
+    background-color: #a8dadc;
+  }
+  
+  .bar.grind {
+    background-color: #fcbf49;
+  }
+  
+  .bar.free {
+    background-color: #90be6d;
+  }
+  

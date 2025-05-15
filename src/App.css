@@ -184,3 +184,48 @@ body {
   font-weight: 600;
   color: #444;
 }
+
+/* ----------------------- */
+/* SETTING PAGE */
+
+.setting-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.setting-page h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.activity-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.activity-row input[type="text"],
+.activity-row input[type="number"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.setting-page button {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #dceefc;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.setting-page button:hover {
+  background-color: #bfdff9;
+}

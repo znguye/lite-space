@@ -15,6 +15,7 @@ export default function NavBar() {
                 <Link to = "/addtask">Add Task</Link>
                 <Link to = "/tasklist">Task List</Link>
                 <Link to = "/compass">Compass</Link>
+                <Link to = "/setting">Setting</Link>
             </div>
         </nav>
     )
