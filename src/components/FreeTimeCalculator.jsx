@@ -19,37 +19,30 @@ export default function FreeTimeCalculator({tasks = []}) {
 
     return (
         <div className="free-time-card">
-            <div className="time-block">
-                <label>Base Time</label>
-                <div className="bar-container">
-                    <div
-                    className="bar base"
-                    style={{ width: `${(baseTime / 24) * 100}%` }}
-                    ></div>
-                </div>
+      
+          <div className="time-bar-wrapper">
+            <div className="time-bar">
+              <div
+                className="bar-segment base"
+                style={{ width: `${(baseTime / 24) * 100}%` }}
+              ></div>
+              <div
+                className="bar-segment grind"
+                style={{ width: `${(grindTime / 24) * 100}%` }}
+              ></div>
+              <div
+                className="bar-segment free"
+                style={{ width: `${(freeTime / 24) * 100}%` }}
+              ></div>
             </div>
-
-            <div className="time-block">
-                <label>Grind Time</label>
-                <div className="bar-container">
-                    <div
-                    className="bar grind"
-                    style={{ width: `${(grindTime / 24) * 100}%` }}
-                    ></div>
-                </div>
-            </div>
-
-            <div className="time-block">
-                <label>Free Time</label>
-                <div className="bar-container">
-                    <div
-                    className="bar free"
-                    style={{ width: `${(freeTime / 24) * 100}%` }}
-                    ></div>
-                </div>
-            </div>
-
+          </div>
+      
+          <div className="time-labels">
+            <span className="label base">Base Time</span>
+            <span className="label grind">Grind Time</span>
+            <span className="label free">Free Time</span>
+          </div>
         </div>
-    )
+      );
 
 }

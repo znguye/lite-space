@@ -1,6 +1,6 @@
 import NavBar from "../components/Shared/NavBar";
 import Banner from "../components/Shared/Banner";
-import FilterBar from "../components/FilterBar";
+import FilterBar from "../components/home_page_components/FilterBar";
 import CategoryCard from "../components/CategoryCard";
 
 import { getTasks } from "../services/api";

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Archetype({ totalTasks = 20, completedTasks = 8, categoryCounts }) {
+export default function Archetype({ totalTasks, completedTasks, categoryCounts }) {
     // Determine task load
     let loadLabel = "Low load";
     if (totalTasks > 7) {

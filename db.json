@@ -11,7 +11,7 @@
     {
       "id": "2",
       "name": "Walk the dog",
-      "status": "not started",
+      "status": "done",
       "category": "Relationships",
       "dueDate": "2025-05-20",
       "duration": 45
@@ -19,7 +19,7 @@
     {
       "id": "3",
       "name": "Write monthly report",
-      "status": "not started",
+      "status": "done",
       "category": "Work",
       "dueDate": "2025-05-18",
       "duration": 30
@@ -27,7 +27,7 @@
     {
       "id": "4",
       "name": "Call Antoine",
-      "status": "in progress",
+      "status": "done",
       "category": "Relationships",
       "dueDate": "2025-05-20",
       "duration": 75
@@ -35,7 +35,7 @@
     {
       "id": "5",
       "name": "Organize team meeting",
-      "status": "in progress",
+      "status": "done",
       "category": "Work",
       "dueDate": "2025-05-19",
       "duration": 60
@@ -43,7 +43,7 @@
     {
       "id": "6",
       "name": "Learn Python",
-      "status": "not started",
+      "status": "done",
       "category": "Learning",
       "dueDate": "2025-05-20",
       "duration": 60
@@ -55,14 +55,6 @@
       "category": "Self",
       "dueDate": "2025-05-17",
       "duration": 15
-    },
-    {
-      "id": "8",
-      "name": "Review budget spreadsheet (1)",
-      "status": "not started",
-      "category": "Work",
-      "dueDate": "2025-05-17",
-      "duration": 75
     },
     {
       "id": "9",
@@ -121,14 +113,6 @@
       "duration": 90
     },
     {
-      "id": "16",
-      "name": "Read design pattern chapter (1)",
-      "status": "not started",
-      "category": "Learning",
-      "dueDate": "2025-05-21",
-      "duration": 30
-    },
-    {
       "id": "17",
       "name": "Call mom",
       "status": "done",
@@ -153,28 +137,12 @@
       "duration": 90
     },
     {
-      "id": "20",
-      "name": "Plan weekend trip with friends (1)",
-      "status": "done",
-      "category": "Relationships",
-      "dueDate": "2025-05-17",
-      "duration": 75
-    },
-    {
       "id": "21",
       "name": "Write thank-you note",
       "status": "in progress",
       "category": "Relationships",
       "dueDate": "2025-05-21",
       "duration": 90
-    },
-    {
-      "id": "22",
-      "name": "Write thank-you note (1)",
-      "status": "in progress",
-      "category": "Relationships",
-      "dueDate": "2025-05-18",
-      "duration": 60
     },
     {
       "id": "23",
@@ -185,14 +153,6 @@
       "duration": 90
     },
     {
-      "id": "24",
-      "name": "Have coffee with a friend (1)",
-      "status": "not started",
-      "category": "Relationships",
-      "dueDate": "2025-05-18",
-      "duration": 60
-    },
-    {
       "id": "25",
       "name": "Go for a run",
       "status": "done",
@@ -201,24 +161,8 @@
       "duration": 30
     },
     {
-      "id": "26",
-      "name": "Go for a run (1)",
-      "status": "in progress",
-      "category": "Self",
-      "dueDate": "2025-05-20",
-      "duration": 15
-    },
-    {
       "id": "27",
       "name": "Meditate for 15 minutes",
-      "status": "in progress",
-      "category": "Self",
-      "dueDate": "2025-05-17",
-      "duration": 45
-    },
-    {
-      "id": "28",
-      "name": "Meditate for 15 minutes (1)",
       "status": "in progress",
       "category": "Self",
       "dueDate": "2025-05-17",
@@ -231,14 +175,6 @@
       "category": "Self",
       "dueDate": "2025-05-22",
       "duration": 60
-    },
-    {
-      "id": "30",
-      "name": "Journal thoughts (1)",
-      "status": "not started",
-      "category": "Self",
-      "dueDate": "2025-05-17",
-      "duration": 30
     }
   ]
 }

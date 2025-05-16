@@ -1,7 +1,7 @@
 import React from "react"
 import './comonents_styles/CompassCard.css'
 
-export default function CommpassCard({totalTasks = 13, completedTasks = 9}) {
+export default function CommpassCard({totalTasks, completedTasks}) {
 
     const getPosition = () => {
         
@@ -25,10 +25,10 @@ export default function CommpassCard({totalTasks = 13, completedTasks = 9}) {
     return(
         <div className = "compass-card">
             <div className="compass">
-                <div className="zone top-left">TL</div>
-                <div className="zone top-right">TR</div>
-                <div className="zone bottom-left">BL</div>
-                <div className="zone bottom-right">BL</div>
+                <div className="zone top-left">Zen Zone</div>
+                <div className="zone top-right">Focus Mode</div>
+                <div className="zone bottom-left">Chill Drift</div>
+                <div className="zone bottom-right">Burnout Bay</div>
                 <div className="ball" style={getPosition()}></div>
             </div>
         </div>

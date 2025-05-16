@@ -1,23 +1,18 @@
-import NavBar from "../components/Shared/NavBar";
-import React from "react";
-//Banner - to be refactored
 import { useEffect, useState } from "react";
-import { getRandomQuote } from "../services/quote_api";
-
-import CommpassCard from "../components/CompassCard"; 
-import '../pages/pages_styles/CompassPage.css'
-import Archetype from "../components/Archetype";
 import {getTasks} from "../services/api"
+
+import React from "react";
+import NavBar from "../components/Shared/NavBar";
+import Banner from "../components/Shared/Banner";
+
+import CompassCard from "../components/CompassCard"; 
+import Archetype from "../components/Archetype";
 import FreeTimeCalculator from "../components/FreeTimeCalculator";
+
+import '../pages/pages_styles/CompassPage.css'
 
 
 export default function CompassPage(){
-
-    //Quote part:
-        const [quote, setQuote] = useState(null);
-        useEffect(() => {
-            setQuote(getRandomQuote());
-        },[]);
 
         const [tasks, setTasks] = useState([]);
 
@@ -41,20 +36,11 @@ export default function CompassPage(){
     return(
         <div>
             <NavBar />
-
-            <section className="HomePageBanner">
-            <div className="banner-overlay">
-                {quote && (
-                    <>
-                        <h2 className="quote">"{quote.text}"</h2>
-                        <p className="author">- {quote.author} -</p>
-                    </>
-                )}
-            </div>
-            </section>
+            <Banner />
 
             <section className="card-container">
                 <div className="card">
+                    <h3 className="card-title">Your Archetype</h3>
                     <Archetype
                     totalTasks={totalTasks}
                     completedTasks={completedTasks}
@@ -63,7 +49,8 @@ export default function CompassPage(){
                 </div>
 
                 <div className="card">
-                    <CommpassCard
+                    <h3 className="card-title">Your Compass</h3>
+                    <CompassCard
                     totalTasks={totalTasks}
                     completedTasks={completedTasks}
                     categoryCounts={categoryCounts}
@@ -71,6 +58,7 @@ export default function CompassPage(){
                 </div>
 
                 <div className="card">
+                    <h3 className="card-title">Time Allocation</h3>
                     <FreeTimeCalculator tasks={tasks} />
                 </div>
                 </section>

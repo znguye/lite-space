@@ -3,44 +3,64 @@
     background-color: #f8f9fc;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    max-width: 320px;  
+    max-width: 320px;
     margin: auto;
+    text-align: center;
   }
   
-  .time-block {
-    margin-bottom: 1.25rem;
+  .card-title {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
   }
   
-  .time-block label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 0.4rem;
-    color: #555;
+  .time-bar-wrapper {
+    margin-bottom: 1rem;
   }
   
-  .bar-container {
-    background-color: #eee;
-    border-radius: 6px;
-    height: 12px;
+  .time-bar {
+    height: 16px;
     width: 100%;
+    background-color: #eee;
+    border-radius: 8px;
+    display: flex;
     overflow: hidden;
   }
   
-  .bar {
-    height: 12px;
-    border-radius: 6px;
+  .bar-segment {
+    height: 100%;
     transition: width 0.3s ease;
   }
   
-  .bar.base {
+  .bar-segment.base {
     background-color: #a8dadc;
   }
   
-  .bar.grind {
+  .bar-segment.grind {
     background-color: #fcbf49;
   }
   
-  .bar.free {
+  .bar-segment.free {
     background-color: #90be6d;
+  }
+  
+  .time-labels {
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.85rem;
+    color: #555;
+  }
+  
+  .label.base {
+    color: #457b9d;
+  }
+  
+  .label.grind {
+    color: #f77f00;
+  }
+  
+  .label.free {
+    color: #588157;
   }
   

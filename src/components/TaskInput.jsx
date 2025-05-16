@@ -1,43 +1,58 @@
 // Objective: This component is a form to add task. The user can't add an empty task. 
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "./comonents_styles/TaskInput.css"
 
-export default function TaskInput({onAddTask}) {
+
+export default function TaskInput({onAddTask, onUpdateTask, editingTask}) {
+    const today = new Date().toISOString().split("T")[0];
+    
     const [task, setTask] = useState("");
-    const [description, setDescription] = useState("");
     const [category, setCategory] = useState("self");
     const [status, setStatus] = useState("not started");
-    const [dueDate, setDueDate] = useState("");
-    const [repetition, setRepetition] = useState("none");
+    const [dueDate, setDueDate] = useState(today);
     const [duration, setDuration] = useState(30);
     
+    useEffect(() => {
+        if(editingTask){
+            setTask(editingTask.name);
+            setCategory(editingTask.category || "self");
+            setStatus(editingTask.status || "new");
+            setDueDate(editingTask.dueDate || today);
+            setDuration(editingTask.duration || "30");
+        }}, []);
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
-
         //The user cannot add an empty task: If the trimmed task is empty, return nothing.
         if (!task.trim()) return;
     
-        const newTask = {
-            id: Date.now(),
-            task,
-            description,
-            category,
+        const updatedTask = {
+            ...editingTask,
+            // id: Date.now(),
+            name: task,
             status,
-            createdDate: new Date().toISOString(),
+            category,
             dueDate,
-            repetition,
-            duration: parseInt(duration)
-        };
+            duration,
+        }
 
-        onAddTask(newTask);
-
+        if (editingTask){
+            onUpdateTask(updatedTask)
+        } else {
+            onAddTask({
+                id: Date.now(),
+                ...updatedTask,
+                createdDate: new Date().toISOString()
+            });
+        }
+        
         //Reset form:
         setTask("");
-        setDescription("");
         setCategory("self");
         setStatus("new");
-        setDueDate("");
-        setRepetition("none");
+        setDueDate(today);
         setDuration(30);
     
     }
@@ -76,15 +91,6 @@ export default function TaskInput({onAddTask}) {
                     onChange={(e) => setDueDate(e.target.value)}
                 />
 
-                <select
-                    value={repetition}
-                    onChange={(e) => setRepetition(e.target.value)}
-                >
-                    <option value="none">No repeat</option>
-                    <option value="daily">Daily</option>
-                    <option value="weekly">Weekly</option>
-                </select>
-
                 <input 
                     type="number"
                     min="5"
@@ -94,7 +100,19 @@ export default function TaskInput({onAddTask}) {
                     onChange={(e) => setDuration(e.target.value)}
                 />
 
-                <button type="submit">Add</button>
+                <button type="submit">{editingTask ? "Update" : "Add"}</button>
+                {editingTask && (
+                    <button type="button" onClick = {() => {
+                        setTask("");
+                        setCategory("self");
+                        setStatus("new");
+                        setDueDate("");
+                        setDuration(30);
+                        onUpdateTask(null);
+                    }}>
+                        Cancel
+                    </button>
+                )}
             </form>
         </>
     );
