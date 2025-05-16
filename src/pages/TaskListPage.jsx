@@ -1,4 +1,4 @@
-import NavBar from "../components/NavBar"
+import NavBar from "../components/Shared/NavBar"
 import { useEffect, useState } from "react"
 import { getTasks, deleteTask, updateTask } from "../services/api";
 import TaskList from "../components/TaskList";
@@ -77,7 +77,7 @@ export default function TaskListPage(){
                     ))}
                 </div>
                 <div className="filter-row">
-                    {["All", "Work", "Self", "Study", "Relationships"].map((label) => (
+                    {["All", "Work", "Self", "Learning", "Relationships"].map((label) => (
                         <button key={label} onClick={() => setCategoryFilter(label)}>{label}</button>
                     ))}
                 </div>

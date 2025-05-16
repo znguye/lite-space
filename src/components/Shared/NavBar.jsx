@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
-import logo from "../assets/react.svg";
-import "./comonents_styles/NavBar.css"
+import logo from "../../assets/react.svg"
+import "../comonents_styles/NavBar.css";
 
 export default function NavBar() {
     return(

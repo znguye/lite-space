@@ -1,4 +1,4 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Shared/NavBar";
 import React, { useState, useEffect } from "react";
 
 export default function SettingPage(){

@@ -2,7 +2,7 @@
 
 import {useEffect, useState} from "react";
 import TaskInput from "../components/TaskInput";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Shared/NavBar";
 import { createTask, getTasks } from "../services/api";
 
 export default function AddTaskPage(){

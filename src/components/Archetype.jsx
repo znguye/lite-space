@@ -49,28 +49,28 @@ export default function Archetype({ totalTasks = 20, completedTasks = 8, categor
     const archetypeMatrix = {
       "High load, high completion": {
         Work: "The Achiever",
-        Study: "The Scholar",
+        Learning: "The Scholar",
         Relationships: "The Empath",
         Self: "The Zen Master",
         Balanced: "The Alchemist",
       },
       "Low load, high completion": {
         Work: "The Sniper",
-        Study: "The Sniper",
+        Learning: "The Sniper",
         Relationships: "The Connector",
         Self: "The Self-Curator",
         Balanced: "The Wanderer",
       },
       "High load, low completion": {
         Work: "The Dreamer",
-        Study: "The Crammer",
+        Learning: "The Crammer",
         Relationships: "The Juggler",
         Self: "The Inner Fire",
         Balanced: "The Dabbler",
       },
       "Low load, low completion": {
         Work: "The Wanderer",
-        Study: "The Wanderer",
+        Learning: "The Wanderer",
         Relationships: "The Wanderer",
         Self: "The Wanderer",
         Balanced: "The Wanderer",

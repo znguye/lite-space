@@ -1,4 +1,4 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Shared/NavBar";
 import React from "react";
 //Banner - to be refactored
 import { useEffect, useState } from "react";
