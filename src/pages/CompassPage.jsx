@@ -83,7 +83,7 @@ export default function CompassPage(){
                 </div>
 
                 <div className="card">
-                    <h3 className="card-title">Time Allocation</h3>
+                    <h3 className="card-title">Your Time</h3>
                     <FreeTimeCalculator tasks={filteredTasks} filter={filter} />
                 </div>
                 </section>

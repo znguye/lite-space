@@ -4,7 +4,9 @@
 // - `updateTask(id, updates)`
 // - `deleteTask(id)`
 
-const BASE_URL = "http://localhost:3001/tasks"
+// const BASE_URL = "http://localhost:3001/tasks"
+const BASE_URL = "https://lite-api.onrender.com/api";
+
 
 export async function getTasks() {
     const response = await fetch(BASE_URL);

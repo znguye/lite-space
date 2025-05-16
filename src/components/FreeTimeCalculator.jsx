@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./comonents_styles/FreeTimeCalculator.css";
 
-export default function FreeTimeCalculator({tasks = []}) {
+export default function FreeTimeCalculator({tasks = [], filter="all"}) {
     const [baseTime, setBaseTime] = useState(0);
 
     useEffect(() => {
@@ -14,8 +14,18 @@ export default function FreeTimeCalculator({tasks = []}) {
         }
       }, []);
 
-    const grindTime = tasks.reduce((sum,task) => sum + (task.duration || 0), 0)/ 60;
+
+
+    //Getting unique task dates
+    const uniqueDates = [...new Set(tasks.map(task => task.dueDate))];
+    const daysCount = Math.max(uniqueDates.length, 1); 
+    let grindTime = tasks.reduce((sum, task) => sum + (task.duration || 0), 0) / 60;
+        if (filter === "all") {
+        grindTime = grindTime / daysCount;
+        }
+
     const freeTime = Math.max(24 - baseTime - grindTime, 0);
+
 
     return (
         <div className="free-time-card">

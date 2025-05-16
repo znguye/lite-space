@@ -1,0 +1,76 @@
+{
+    "tasks": [
+      {
+        "id": "1",
+        "name": "Complete UI redesign",
+        "status": "done",
+        "category": "Work",
+        "dueDate": "2025-05-16",
+        "duration": 60
+      },
+      {
+        "id": "2",
+        "name": "Walk the dog",
+        "status": "done",
+        "category": "Relationships",
+        "dueDate": "2025-05-20",
+        "duration": 45
+      },
+      {
+        "id": "3",
+        "name": "Write monthly report",
+        "status": "done",
+        "category": "Work",
+        "dueDate": "2025-05-18",
+        "duration": 30
+      },
+      {
+        "id": "4",
+        "name": "Call Antoine",
+        "status": "not started",
+        "category": "Relationships",
+        "dueDate": "2025-05-20",
+        "duration": 75
+      },
+      {
+        "id": "5",
+        "name": "Organize team meeting",
+        "status": "in progress",
+        "category": "Work",
+        "dueDate": "2025-05-19",
+        "duration": 60
+      },
+      {
+        "id": "6",
+        "name": "Learn Python",
+        "status": "in progress",
+        "category": "Learning",
+        "dueDate": "2025-05-20",
+        "duration": 60
+      },
+      {
+        "id": "7",
+        "name": "Review budget spreadsheet",
+        "status": "done",
+        "category": "Self",
+        "dueDate": "2025-05-17",
+        "duration": 15
+      },
+      {
+        "id": "9",
+        "name": "Study React fundamentals",
+        "status": "in progress",
+        "category": "Learning",
+        "dueDate": "2025-05-21",
+        "duration": 90
+      },
+      {
+        "id": "10",
+        "name": "Read news",
+        "status": "not started",
+        "category": "Learning",
+        "dueDate": "2025-05-18",
+        "duration": 90
+      }
+    ]
+  }
