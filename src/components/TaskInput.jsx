@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 import "./comonents_styles/TaskInput.css"
 
+const today = new Date().toISOString().split("T")[0];
 
 export default function TaskInput({onAddTask, onUpdateTask, editingTask}) {
-    const today = new Date().toISOString().split("T")[0];
+    
     
     const [task, setTask] = useState("");
     const [category, setCategory] = useState("self");
@@ -20,7 +21,7 @@ export default function TaskInput({onAddTask, onUpdateTask, editingTask}) {
             setStatus(editingTask.status || "new");
             setDueDate(editingTask.dueDate || today);
             setDuration(editingTask.duration || "30");
-        }}, []);
+        }}, [editingTask]);
 
 
     const handleSubmit = (e) => {

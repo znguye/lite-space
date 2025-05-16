@@ -108,7 +108,7 @@ export default function TaskPage(){
                     (<p> You don't have any tasks!</p>
                     ) : (
                         <TaskList 
-                            tasks={tasks.slice(0, 6)}
+                            tasks={filteredTasks.slice(0, 6)}
                             onComplete={handleComplete}
                             onDelete={handleDelete}
                             onEdit={handleEdit}
