@@ -1,10 +1,18 @@
 import "../comonents_styles/TasksFilterBar.css";
 
+const STATUS_OPTIONS = [
+  { label: "All", value: "All" },
+  { label: "Not started", value: "not started" },
+  { label: "In progress", value: "wip" },
+  { label: "Done", value: "done" }
+];
+
 export default function FilterBar({ 
   dateFilter, setDateFilter, 
   categoryFilter, setCategoryFilter, 
   statusFilter, setStatusFilter 
 }) {
+
   return (
     <section className="TasksFilterBar">
       <div className="filter-group">
@@ -38,13 +46,13 @@ export default function FilterBar({
 
         <div className="filter-label">Progress ▾
           <div className="filter-options">
-            {["All", "not started", "in progress", "done"].map(label => (
+            {STATUS_OPTIONS.map(option => (
               <button 
-                key={label}
-                className={statusFilter === label ? "active" : ""}
-                onClick={() => setStatusFilter(label)}
+                key={option.value}
+                className={statusFilter === option.value ? "active" : ""}
+                onClick={() => setStatusFilter(option.value)}
               >
-                {label}
+                {option.label}
               </button>
             ))}
           </div>

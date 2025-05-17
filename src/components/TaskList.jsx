@@ -1,14 +1,21 @@
 import "./comonents_styles/TaskList.css"
 
 export default function TaskList({tasks, onEdit, onComplete, onDelete}){
+    const STATUS_LABELS = {
+        "not started": "Not started",
+        "wip": "In progress",
+        "done": "Done",
+      };
+      
+
     return(
         <div className = "task-grid" >
             {tasks.map((task) => (
                  <div className="task-tile" key={task.id}>
                     <div>
-                        <h4>{task.name}</h4>
+                        <h4><strong>{task.name}</strong></h4>
                         {task.description && <p>{task.description}</p>}
-                        <p><strong>Status:</strong> {task.status}</p>
+                        <p><strong>Status:</strong> {STATUS_LABELS[task.status] || task.status}</p>
                         <p><strong>Due:</strong> {task.dueDate}</p>
                         <p><strong>Category:</strong> {task.category}</p>
                         <p><strong>Duration:</strong> {task.duration} min</p>
