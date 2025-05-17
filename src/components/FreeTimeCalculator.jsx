@@ -9,7 +9,7 @@ export default function FreeTimeCalculator({tasks = [], filter="all"}) {
         const stored = localStorage.getItem("baseActivities");
         if (stored) {
           const activities = JSON.parse(stored);
-          const total = activities.reduce((sum, act) => sum + (act.hours || 0), 0); // ✅ fixed
+          const total = activities.reduce((sum, act) => sum + (act.hours || 0), 0); 
           setBaseTime(total);
         }
       }, []);

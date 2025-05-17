@@ -14,6 +14,7 @@ export async function getTasks() {
 }
 
 export async function createTask(task) {
+    console.log("Create task called")
     const response = await (fetch (BASE_URL, {
         method: "POST",
         headers: {"Content-Type": "application/json"},

@@ -5,11 +5,9 @@ import "./comonents_styles/TaskInput.css"
 
 const today = new Date().toISOString().split("T")[0];
 
-export default function TaskInput({onAddTask, onUpdateTask, editingTask}) {
-    
-    
+export default function TaskInput({onAddTask, onUpdateTask, editingTask, onCancelEdit }) {
     const [task, setTask] = useState("");
-    const [category, setCategory] = useState("self");
+    const [category, setCategory] = useState("Work");
     const [status, setStatus] = useState("not started");
     const [dueDate, setDueDate] = useState(today);
     const [duration, setDuration] = useState(30);
@@ -17,11 +15,20 @@ export default function TaskInput({onAddTask, onUpdateTask, editingTask}) {
     useEffect(() => {
         if(editingTask){
             setTask(editingTask.name);
-            setCategory(editingTask.category || "self");
-            setStatus(editingTask.status || "new");
+            setCategory(editingTask.category || "Work");
+            setStatus(editingTask.status || "not started");
             setDueDate(editingTask.dueDate || today);
-            setDuration(editingTask.duration || "30");
+            setDuration(editingTask.duration || 30);
         }}, [editingTask]);
+
+
+    const resetForm = () => {
+        setTask("");
+        setCategory("Work");
+        setStatus("not started");
+        setDueDate(today);
+        setDuration(30);
+        };
 
 
     const handleSubmit = (e) => {
@@ -29,33 +36,20 @@ export default function TaskInput({onAddTask, onUpdateTask, editingTask}) {
         //The user cannot add an empty task: If the trimmed task is empty, return nothing.
         if (!task.trim()) return;
     
-        const updatedTask = {
-            ...editingTask,
-            // id: Date.now(),
-            name: task,
-            status,
-            category,
-            dueDate,
-            duration,
-        }
+    const updatedTask = {
+        ...editingTask,
+        name: task,
+        status,
+        category,
+        dueDate,
+        duration: Number(duration),
+    }
 
         if (editingTask){
             onUpdateTask(updatedTask)
         } else {
-            onAddTask({
-                id: Date.now(),
-                ...updatedTask,
-                createdDate: new Date().toISOString()
-            });
-        }
-        
-        //Reset form:
-        setTask("");
-        setCategory("self");
-        setStatus("new");
-        setDueDate(today);
-        setDuration(30);
-    
+            onAddTask(updatedTask);
+        } resetForm();
     }
     
     return (
@@ -72,9 +66,10 @@ export default function TaskInput({onAddTask, onUpdateTask, editingTask}) {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                 >
-                    <option value="work">Work</option>
-                    <option value="self">Self</option>
-                    <option value="social">Social</option>
+                    <option value="Work">Work</option>
+                    <option value="Learning">Learning</option>
+                    <option value="Relationships">Relationships</option>
+                    <option value="Self">Self</option>
                 </select>
 
                 <select
@@ -98,22 +93,18 @@ export default function TaskInput({onAddTask, onUpdateTask, editingTask}) {
                     step="5"
                     placeholder="Duration (min)"
                     value={duration}
-                    onChange={(e) => setDuration(e.target.value)}
+                    onChange={(e) => setDuration(Number(e.target.value))}
                 />
 
                 <button type="submit">{editingTask ? "Update" : "Add"}</button>
-                {editingTask && (
-                    <button type="button" onClick = {() => {
-                        setTask("");
-                        setCategory("self");
-                        setStatus("new");
-                        setDueDate("");
-                        setDuration(30);
-                        onUpdateTask(null);
-                    }}>
+                    {editingTask && (
+                        <button type="button" onClick={ () => {
+                            resetForm();
+                            onCancelEdit();
+                            }}>
                         Cancel
-                    </button>
-                )}
+                        </button>
+                    )}
             </form>
         </>
     );
