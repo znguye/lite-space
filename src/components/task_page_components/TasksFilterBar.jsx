@@ -27,8 +27,8 @@ export default function FilterBar({
             {["All", "Work", "Learning", "Relationships", "Self"].map(label => (
               <button 
                 key={label}
-                className={categoryFilter === label.toLowerCase() ? "active" : ""}
-                onClick={() => setCategoryFilter(label.toLowerCase())}
+                className={categoryFilter === label ? "active" : ""}
+                onClick={() => setCategoryFilter(label)}
               >
                 {label}
               </button>
